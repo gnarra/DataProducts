@@ -1,0 +1,30 @@
+---
+title: "Map from Leaflet Library"
+author: "GN"
+date: "October 17, 2017"
+output:
+  html_document: 
+    keep_md: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Map
+
+This utah state capitol is marked on the map
+
+
+```{r, echo = FALSE}
+library("leaflet")
+```
+
+```{r, echo = TRUE}
+map <- leaflet() %>% 
+  addTiles() %>% 
+  addProviderTiles(providers$OpenStreetMap) %>% 
+  setView(-111.890, 40.777, zoom = 12) %>%
+  addMarkers(lng=-111.8883, lat=40.7774116, popup = "Utah State Capitol")
+map
+```
